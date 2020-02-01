@@ -13,9 +13,13 @@ function showSuccess(input) {
     formControl.classList.add('success');
 }
 
-function isValidEmail(email) {
+function checkEmail(input) {
     const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return check.test(String(email).toLowerCase());
+    if (check.test(input.value.trim())) {
+        showSuccess(input);
+    } else {
+        showError(input, 'Email is not valid');
+    }
 }
 
 function checkRequired(inputArr) {
@@ -27,6 +31,28 @@ function checkRequired(inputArr) {
             showSuccess(input);
         }
     });
+}
+
+function checkLength(input, min, max) {
+    if (input.value.length < min) {
+        showError(
+            input,
+            `${getFieldName(input)} must be at least ${min} characters`
+        );
+    } else if (input.value.length > max) {
+        showError(
+            input,
+            `${getFieldName(input)} must be less than ${max} characters`
+        );
+    } else {
+        showSuccess(input);
+    }
+}
+
+function checkPasswordsMatch(inputPassword, inputCheck) {
+    if (inputPassword.value !== inputCheck.value) {
+        showError(inputCheck, "Passwords don't match");
+    }
 }
 
 function getFieldName(input) {
@@ -43,4 +69,9 @@ form.addEventListener('submit', function handleSubmit(e) {
         formArray.push(field);
     }
     checkRequired(formArray);
+    checkLength(form.username, 3, 15);
+    checkLength(form.password, 6, 25);
+    checkLength(form.password2, 6, 25);
+    checkEmail(form.email);
+    checkPasswordsMatch(form.password, form.password2);
 });
