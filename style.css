@@ -190,6 +190,7 @@ h2 {
     display: block;
     width: 100%;
     padding: 10px;
+    margin-bottom: 3px;
 }
 
 .form-control input:focus {

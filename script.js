@@ -9,6 +9,7 @@ function showError(input, message) {
 
 function showSuccess(input) {
     const formControl = input.parentElement;
+    formControl.classList.remove('error');
     formControl.classList.add('success');
 }
 
@@ -17,34 +18,29 @@ function isValidEmail(email) {
     return check.test(String(email).toLowerCase());
 }
 
+function checkRequired(inputArr) {
+    inputArr.forEach(input => {
+        const trimmedInput = input.value.trim();
+        if (trimmedInput === '') {
+            showError(input, `${getFieldName(input)} is required`);
+        } else {
+            showSuccess(input);
+        }
+    });
+}
+
+function getFieldName(input) {
+    return `${input.name.charAt(0).toUpperCase()}${input.name.slice(1)}`;
+}
+
 /*--------------------------------------------------------------
 ## Event Handlers
 --------------------------------------------------------------*/
 form.addEventListener('submit', function handleSubmit(e) {
     e.preventDefault();
-
-    if (form.username.value === '') {
-        showError(form.username, 'Username is required');
-    } else {
-        showSuccess(form.username);
+    let formArray = [];
+    for (let field of form.elements) {
+        formArray.push(field);
     }
-
-    if (form.email.value === '') {
-        showError(form.email, 'An email is required');
-    } else if (!isValidEmail(form.email.value)) {
-        showError(form.email, 'Please enter a valid email');
-    } else {
-        showSuccess(form.email);
-    }
-
-    if (form.password.value === '') {
-        showError(form.password, 'Password is required');
-    } else {
-        showSuccess(form.password);
-    }
-    if (form.password2.value === '') {
-        showError(form.password2, 'Enter your password again');
-    } else {
-        showSuccess(form.password2);
-    }
+    checkRequired(formArray);
 });
