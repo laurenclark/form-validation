@@ -194,14 +194,15 @@ h2 {
 
 .form-control input:focus {
     outline: 0;
-    border-color: #777;
 }
 
-.form-control.success {
+.form-control.success,
+.form-control.success input {
     border-color: var(--success-color);
 }
 
-.form-control.error {
+.form-control.error,
+.form-control.error input {
     border-color: var(--error-color);
 }
 
@@ -228,4 +229,5 @@ h2 {
     padding: 0.5rem;
     border-radius: 4px;
     width: 100%;
+    margin-top: 1rem;
 }
