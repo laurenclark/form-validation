@@ -12,6 +12,11 @@ function showSuccess(input) {
     formControl.classList.add('success');
 }
 
+function isValidEmail(email) {
+    const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return check.test(String(email).toLowerCase());
+}
+
 /*--------------------------------------------------------------
 ## Event Handlers
 --------------------------------------------------------------*/
@@ -23,11 +28,15 @@ form.addEventListener('submit', function handleSubmit(e) {
     } else {
         showSuccess(form.username);
     }
+
     if (form.email.value === '') {
-        showError(form.email, 'A valid email is required');
+        showError(form.email, 'An email is required');
+    } else if (!isValidEmail(form.email.value)) {
+        showError(form.email, 'Please enter a valid email');
     } else {
         showSuccess(form.email);
     }
+
     if (form.password.value === '') {
         showError(form.password, 'Password is required');
     } else {
