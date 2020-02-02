@@ -157,7 +157,7 @@ body {
 
 h2 {
     font-size: 1.8rem;
-    margin: 0 0 1rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -174,15 +174,17 @@ h2 {
 }
 
 .form-control {
-    margin-bottom: 0.3rem;
-    padding-bottom: 1.1rem;
+    padding-bottom: 0.1rem;
     position: relative;
 }
 
 .form-control label {
+    position: absolute;
     color: #333;
     display: block;
     margin-bottom: 5px;
+    top: 8px;
+    left: 14px;
 }
 
 .form-control input {
@@ -191,7 +193,7 @@ h2 {
     display: block;
     width: 100%;
     padding: 10px;
-    margin-bottom: 3px;
+    margin: 1rem 0;
     font-size: 1rem;
 }
 
@@ -211,16 +213,29 @@ h2 {
 }
 
 .form-control small {
+    position: absolute;
+    bottom: -1px;
     font-size: 12px;
     color: var(--error-color);
-    position: absolute;
-    bottom: 0;
-    left: 0;
     visibility: hidden;
 }
 
 .form-control.error small {
     visibility: visible;
+}
+
+.form-control input:focus + label,
+.form-control.active > label {
+    transform: scale(0.75) translate3d(-35%, -180%, 0);
+    transition: all linear 0.1s;
+}
+
+.form-control input:valid {
+    background: white;
+}
+
+.form-control input:valid {
+    z-index: -1;
 }
 
 .form button {

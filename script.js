@@ -75,3 +75,17 @@ form.addEventListener('submit', function handleSubmit(e) {
     checkEmail(form.email);
     checkPasswordsMatch(form.password, form.password2);
 });
+
+form.addEventListener('focusin', function handleFocus(e) {
+    if (event.target.tagName == 'INPUT') {
+        event.target.parentElement.classList.add('active');
+        console.log('hi');
+    }
+});
+
+form.addEventListener('focusout', function handleBlur(e) {
+    if (event.target.tagName === 'INPUT') {
+        if (event.target.value === '')
+            event.target.parentElement.classList.remove('active');
+    }
+});
