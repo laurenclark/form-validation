@@ -1,4 +1,4 @@
-# 📝Form Validation
+# 📝 Form Validation
 Bread and butter functionality. An example of a vanilla JS registration form, with validation. 
 
 __This example project uses:__
