@@ -226,7 +226,7 @@ h2 {
 
 .form-control input:focus + label,
 .form-control.active > label {
-    transform: scale(0.75) translate3d(-35%, -180%, 0);
+    transform: scale(0.75) translate3d(-30px, -180%, 0);
     transition: all linear 0.1s;
 }
 
