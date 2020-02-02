@@ -223,6 +223,7 @@ h2 {
     position: absolute;
     bottom: -1px;
     font-size: 12px;
+    opacity: 1;
     color: var(--error-color);
     visibility: hidden;
 }
