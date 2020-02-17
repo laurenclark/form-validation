@@ -71,15 +71,14 @@ form.addEventListener('submit', function handleSubmit(e) {
     checkRequired(formArray);
     checkLength(form.username, 3, 15);
     checkLength(form.password, 6, 25);
-    checkLength(form.password2, 6, 25);
+    checkLength(form.confirmPassword, 6, 25);
     checkEmail(form.email);
-    checkPasswordsMatch(form.password, form.password2);
+    checkPasswordsMatch(form.password, form.confirmPassword);
 });
 
 form.addEventListener('focusin', function handleFocus(e) {
     if (event.target.tagName == 'INPUT') {
         event.target.parentElement.classList.add('active');
-        console.log('hi');
     }
 });
 
