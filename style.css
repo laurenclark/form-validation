@@ -256,8 +256,7 @@ h2 {
 
 .form button {
     border-radius: 25px;
-    background: var(--primary-color);
-    box-shadow: 7px 7px 13px #3177bf, -7px -7px 13px #43a1ff;
+    box-shadow: 2px 3px 15px #56585a69, 4px 0px 20px #3498db38;
     color: #f0f0f0;
     display: block;
     font-size: 16px;
@@ -266,6 +265,21 @@ h2 {
     border-radius: 25px;
     width: 100%;
     margin-top: 1rem;
+    border-radius: 50px;
+    background: var(--primary-color);
+    background: linear-gradient(
+        -4deg,
+        hsl(204, 70%, 23%),
+        hsl(204, 70%, 41%),
+        hsl(204, 68%, 62%),
+        hsl(204, 70%, 75%)
+    );
+}
+
+.form button:hover,
+.form button:active {
+    background: linear-gradient(145deg, #5bc6ff, #4da7db);
+    box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
 }
 
 input::placeholder {
