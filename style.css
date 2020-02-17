@@ -145,7 +145,7 @@ html {
 
 body {
     font-size: 16px;
-    background-color: #f9fafb;
+    background-color: #ffffff;
     font-family: 'Open Sans', sans-serif;
     display: flex;
     align-items: center;
@@ -259,6 +259,7 @@ h2 {
     box-shadow: 2px 3px 15px #56585a69, 4px 0px 20px #3498db38;
     color: #f0f0f0;
     display: block;
+    cursor: pointer;
     font-size: 16px;
     border: none;
     padding: 1rem;
@@ -274,12 +275,15 @@ h2 {
         hsl(204, 68%, 62%),
         hsl(204, 70%, 75%)
     );
+    transition: all 0.3s ease;
 }
 
 .form button:hover,
 .form button:active {
     background: linear-gradient(145deg, #5bc6ff, #4da7db);
-    box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+    box-shadow: 1px 7px 12px hsla(204, 70%, 23%, 0.72) inset,
+        -20px -20px 60px #3498db inset, 20px 20px 60px #ffffff,
+        2px 2px 7px hsl(211, 22%, 20%);
 }
 
 input::placeholder {
