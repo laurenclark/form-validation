@@ -162,16 +162,13 @@ h2 {
 }
 
 .container {
-    background: white;
-    border-radius: 25px;
-    box-shadow: 0 0px 36px rgba(255, 255, 255, 0.54),
-        0 0px 36px rgba(170, 168, 168, 0.49),
-        0 0px 6px rgba(129, 129, 129, 0.2) inset;
     width: 100%;
     max-width: 400px;
     border-radius: 30px;
-    background: #ffffff;
-    box-shadow: 41px 41px 82px #d9d9d9, -41px -41px 82px #ffffff;
+    border: 1px solid #a6a6a612;
+    background: linear-gradient(200deg, #ffffff, #fffcfc);
+    box-shadow: 40px 41px 82px #d9d9d9, -41px -41px 82px #ffffff,
+        -59px -105px 38px -25px #ffffff inset;
 }
 
 .form {
@@ -293,4 +290,8 @@ input::placeholder {
 
 .active input::placeholder {
     color: #6d6d6d;
+}
+
+input[type='text'] {
+    -webkit-appearance: none;
 }
